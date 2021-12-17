@@ -83,11 +83,11 @@ namespace Terraria.ModLoader
 			if (Main.dedServ)
 				return;
 
-			if (GoreAutoloadingEnabled)
-				GoreLoader.AutoloadGores(this);
-
 			if (SoundAutoloadingEnabled)
 				SoundLoader.AutoloadSounds(this);
+			
+			if (GoreAutoloadingEnabled)
+				GoreLoader.AutoloadGores(this);
 
 			if (MusicAutoloadingEnabled)
 				MusicLoader.AutoloadMusic(this);
