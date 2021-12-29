@@ -149,6 +149,31 @@
  				if (ProjectileID.Sets.NeedsUUID[Type])
  					projectile.projUUID = projectile.identity;
  
+@@ -8214,8 +_,11 @@
+ 				}
+ 			}
+ 
++			// Copied at the bottom. Gotos would be messy.
++			/*
+ 			if (Main.netMode != 0 && Owner == Main.myPlayer)
+ 				NetMessage.SendData(27, -1, -1, null, num);
++			*/
+ 
+ 			if (Owner == Main.myPlayer) {
+ 				if (ProjectileID.Sets.IsAGolfBall[Type] && Damage <= 0) {
+@@ -8330,6 +_,12 @@
+ 			if (Type == 249)
+ 				projectile.frame = Main.rand.Next(5);
+ 
++			ProjectileLoader.OnSpawn(projectile, spawnSource);
++
++			// Copied from above.
++			if (Main.netMode != 0 && Owner == Main.myPlayer)
++				NetMessage.SendData(27, -1, -1, null, num);
++
+ 			return num;
+ 		}
+ 
 @@ -9050,9 +_,18 @@
  		}
  
